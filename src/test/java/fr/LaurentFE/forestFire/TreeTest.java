@@ -8,13 +8,13 @@ class TreeTest {
 
     private Tree[][] initializeForest(int h, int l) {
         Tree[][] forest = new Tree[h][l];
-        for(int y=0; y<3; y++)
-            for(int x=0; x<3; x++) {
+        for(int y=0; y<h; y++)
+            for(int x=0; x<l; x++) {
                 forest[y][x] = new Tree();
             }
 
-        for(int y=0; y<3; y++)
-            for(int x=0; x<3; x++) {
+        for(int y=0; y<h; y++)
+            for(int x=0; x<l; x++) {
                 if (x-1 >= 0)
                     forest[y][x].addNeighbour(forest[y][x-1]);
                 if (x+1 < l)
