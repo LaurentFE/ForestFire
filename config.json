@@ -1,0 +1,8 @@
+{
+  "forestHeight": 9,
+  "forestLength": 9,
+  "fireSpreadProbability": 0.6,
+  "ignitedTrees": [
+    [1, 1]
+  ]
+}
