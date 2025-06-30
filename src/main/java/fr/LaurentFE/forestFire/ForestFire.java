@@ -5,7 +5,7 @@ public class ForestFire {
         /*
          * Envisioned Algorithm
          * Load config file (h, l, p, (x,y) of ignited trees, maybe GUI settings too)
-         * Create array[h][l] of Tree {state, pos, neighbours=new set<Tree>, void addNeighbour(Tree), bool ignite(p)}
+         * Create array[h][l] of Tree {state, neighbours=new set<Tree>, void addNeighbour(Tree), bool ignite(p)}
          * ignite(p) checks for state, plays probability check, then modifies state and answers true if successful.
          * Compose graph of Tree by adding neighbours in accordance to graph
          * Ignite initial tree(s) and add them to a set
