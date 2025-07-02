@@ -21,3 +21,33 @@ Ce qui nous intéresse n’est pas de simplement voir un programme de simulation
 - Comment vous codez
 - Quels sont vos choix architecturaux
 - Comment vous présentez votre travail une fois réalisé
+
+## Utilisation
+
+Vérifiez que votre variable d'environnement Java pointe bien sur la version 21, car c'est elle qui a été utilisée pour développer cette application, et est indiquée dans le fichier pom.xml
+
+Construisez le fichier JAR à travers votre console, depuis le repertoire du projet :\
+```mvn package```
+
+Puis exécutez le JAR depuis le même repertoire :\
+```java -jar ./target/ForestFire-1.0.jar```
+
+Pour la bonne exécution du programme, un fichier ```config.json``` doit être présent dans le répertoire depuis lequel
+la commande d'exécution du programme est lancée.\
+Voici son format attendu :
+```
+{
+  "forestHeight": int,
+  "forestWidth": int,
+  "fireSpreadProbability": double,
+  "ignitedTrees": [
+    [int, int]
+  ],
+  "treeHeight": int,
+  "treeWidth": int
+}
+```
+- forestHeight & forestWidth définissent les dimensions de la forêt (nombre d'arbres)
+- fireSpreadProbability représente la probabilité, comprise entre 0 et 1 inclus, que le feu se propage aux arbres voisins
+- ignitedTrees est un tableau de coordonnées [x, y] d'arbres en feu à la première étape de la simulation
+- treeHeight & treeWidth définissent les dimensions en pixel de chaque arbre dans l'interface graphique de la simulation
