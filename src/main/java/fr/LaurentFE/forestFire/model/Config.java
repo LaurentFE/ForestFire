@@ -1,4 +1,4 @@
-package fr.LaurentFE.forestFire;
+package fr.LaurentFE.forestFire.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,9 +10,11 @@ import java.nio.file.Paths;
 
 public class Config {
     private int forestHeight;
-    private int forestLength;
+    private int forestWidth;
     private double fireSpreadProbability;
     private int[][] ignitedTrees;
+    private int treeHeight;
+    private int treeWidth;
 
     public Config() {
 
@@ -26,12 +28,12 @@ public class Config {
         this.forestHeight = forestHeight;
     }
 
-    public int getForestLength() {
-        return forestLength;
+    public int getForestWidth() {
+        return forestWidth;
     }
 
-    public void setForestLength(int forestLength) {
-        this.forestLength = forestLength;
+    public void setForestWidth(int forestWidth) {
+        this.forestWidth = forestWidth;
     }
 
     public double getFireSpreadProbability() {
@@ -50,9 +52,25 @@ public class Config {
         this.ignitedTrees = ignitedTrees;
     }
 
+    public int getTreeHeight() {
+        return treeHeight;
+    }
+
+    public void setTreeHeight(int treeHeight) {
+        this.treeHeight = treeHeight;
+    }
+
+    public int getTreeWidth() {
+        return treeWidth;
+    }
+
+    public void setTreeWidth(int treeWidth) {
+        this.treeWidth = treeWidth;
+    }
+
     public String toString() {
         StringBuilder s = new StringBuilder("forestHeight:" + forestHeight + "\n")
-                .append("forestLength:").append(forestLength).append("\n")
+                .append("forestWidth:").append(forestWidth).append("\n")
                 .append("fireSpreadProbability:").append(fireSpreadProbability).append("\n")
                 .append("ignitedTrees:");
         for (int[] pos: ignitedTrees) {
@@ -76,4 +94,4 @@ public class Config {
             throw new RuntimeException(e);
         }
     }
- }
+}

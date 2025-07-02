@@ -1,5 +1,6 @@
 package fr.LaurentFE.forestFire;
 
+import fr.LaurentFE.forestFire.model.Forest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

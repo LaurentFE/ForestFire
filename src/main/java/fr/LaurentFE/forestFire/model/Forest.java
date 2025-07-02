@@ -1,18 +1,18 @@
-package fr.LaurentFE.forestFire;
+package fr.LaurentFE.forestFire.model;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class Forest {
     private final int forestHeight;
-    private final int forestLength;
+    private final int forestWidth;
     private final double fireSpreadProbability;
     private Tree[][] forest;
     private Set<Tree> ignitedTrees;
 
     public Forest(int h, int l, double p) {
         forestHeight = h;
-        forestLength = l;
+        forestWidth = l;
         fireSpreadProbability = p;
         initializeForest();
         ignitedTrees = new HashSet<>();
@@ -29,17 +29,17 @@ public class Forest {
 
     // Creates the graphs of trees.
     private void initializeForest() {
-        forest = new Tree[forestHeight][forestLength];
+        forest = new Tree[forestHeight][forestWidth];
         for(int y=0; y<forestHeight; y++)
-            for(int x=0; x<forestLength; x++) {
+            for(int x = 0; x< forestWidth; x++) {
                 forest[y][x] = new Tree();
             }
 
         for(int y=0; y<forestHeight; y++)
-            for(int x=0; x<forestLength; x++) {
+            for(int x = 0; x< forestWidth; x++) {
                 if (x-1 >= 0)
                     forest[y][x].addNeighbour(forest[y][x-1]);
-                if (x+1 < forestLength)
+                if (x+1 < forestWidth)
                     forest[y][x].addNeighbour(forest[y][x+1]);
                 if (y-1 >= 0)
                     forest[y][x].addNeighbour(forest[y-1][x]);
@@ -65,5 +65,13 @@ public class Forest {
 
     public Tree[][] getForestState() {
         return forest;
+    }
+
+    public int getForestHeight() {
+        return forestHeight;
+    }
+
+    public int getForestWidth() {
+        return forestWidth;
     }
 }
