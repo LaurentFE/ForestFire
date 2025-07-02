@@ -1,4 +1,4 @@
-package fr.LaurentFE.forestFire;
+package fr.LaurentFE.forestFire.model;
 
 import java.util.HashSet;
 import java.util.Set;

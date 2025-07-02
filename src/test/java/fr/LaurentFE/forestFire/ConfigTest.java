@@ -1,5 +1,6 @@
 package fr.LaurentFE.forestFire;
 
+import fr.LaurentFE.forestFire.model.Config;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ class ConfigTest {
          String expectedResult =
                  """
                          forestHeight:9
-                         forestLength:9
+                         forestWidth:9
                          fireSpreadProbability:0.6
                          ignitedTrees:(1,1)(2,2)""";
         assertEquals(expectedResult, config.toString());

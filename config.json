@@ -1,8 +1,13 @@
 {
-  "forestHeight": 5,
-  "forestLength": 5,
-  "fireSpreadProbability": 0.3,
+  "forestHeight": 18,
+  "forestWidth": 30,
+  "fireSpreadProbability": 0.51,
   "ignitedTrees": [
-    [2, 2]
-  ]
+    [2, 2],
+    [11, 9],
+    [27, 0],
+    [29, 17]
+  ],
+  "treeHeight": 25,
+  "treeWidth": 25
 }
