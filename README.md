@@ -1,6 +1,6 @@
 # Simulation d'un feu de forêt
 
-## Énoncé :
+## Énoncé
 L'objectif est d'implémenter une simulation de la propagation d’un feu de forêt.
 
 Durée indicative de l’exercice : environ 2h/3h
