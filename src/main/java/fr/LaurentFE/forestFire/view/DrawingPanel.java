@@ -24,9 +24,9 @@ public class DrawingPanel extends JPanel {
     public void paint(Graphics g) {
         Graphics2D g2D = (Graphics2D) g;
 
-        for(int y=0; y<forest.getForestState().length; y++) {
-            for(int x=0; x<forest.getForestState()[0].length; x++) {
-                Tree t = forest.getForestState()[y][x];
+        for(int y=0; y<forest.getForestHeight(); y++) {
+            for(int x=0; x<forest.getForestWidth(); x++) {
+                Tree t = forest.getTree(x, y);
                 switch (t.getState()) {
                     case "NORMAL" -> g2D.setColor(Color.GREEN);
                     case "IGNITED" -> g2D.setColor(Color.ORANGE);

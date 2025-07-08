@@ -24,4 +24,10 @@ class ForestTest {
 
         assertTrue(forest.playStep());
     }
+
+    @Test
+    void outOfBoundsGetTreeReturnsNull() {
+        Forest forest = new Forest(3, 3, 1);
+        assertNull(forest.getTree(0,3));
+    }
 }
