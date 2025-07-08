@@ -24,26 +24,32 @@ public class DisplayWindow extends JFrame implements KeyListener {
         });
 
         Config config = Config.readConfig("./config.json");
-        forest = new Forest(
-                config.getForestHeight(),
-                config.getForestWidth(),
-                config.getFireSpreadProbability());
-        forest.initialIgnite(config.getIgnitedTrees());
+        if (!config.isConfigUsable()) {
+            forest = null;
+            drawingPanel = null;
+            unusableConfigClose();
+        } else {
+            forest = new Forest(
+                    config.getForestHeight(),
+                    config.getForestWidth(),
+                    config.getFireSpreadProbability());
+            forest.initialIgnite(config.getIgnitedTrees());
 
-        drawingPanel = new DrawingPanel(
-                config.getTreeWidth(),
-                config.getTreeHeight(),
-                forest);
+            drawingPanel = new DrawingPanel(
+                    config.getTreeWidth(),
+                    config.getTreeHeight(),
+                    forest);
 
-        this.add(drawingPanel, BorderLayout.CENTER);
-        this.add(new Label(
-                "Press any key to go to the next step of the simulation", Label.CENTER),
-                BorderLayout.SOUTH);
-        this.pack();
+            this.add(drawingPanel, BorderLayout.CENTER);
+            this.add(new Label(
+                            "Press any key to go to the next step of the simulation", Label.CENTER),
+                    BorderLayout.SOUTH);
+            this.pack();
 
-        this.addKeyListener(this);
-        this.setLocationRelativeTo(null);
-
+            this.addKeyListener(this);
+            this.setLocationRelativeTo(null);
+            this.setVisible(true);
+        }
     }
 
     // Displays an option panel to check if user really wants to exit program
@@ -56,6 +62,18 @@ public class DisplayWindow extends JFrame implements KeyListener {
         if (exitValue == JOptionPane.YES_OPTION) {
             dispose();
         }
+    }
+
+    // Displays an option panel to inform the user that the config doesn't allow the simulation to run
+    private void unusableConfigClose() {
+        JOptionPane.showMessageDialog(
+                null,
+                "The config.json file contains values that do not allow the simulation to run.\n" +
+                        "Check the error stream.",
+                "config.json value error",
+                JOptionPane.ERROR_MESSAGE);
+
+        dispose();
     }
 
     @Override

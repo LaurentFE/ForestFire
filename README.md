@@ -51,3 +51,7 @@ Voici son format attendu :
 - fireSpreadProbability représente la probabilité, comprise entre 0 et 1 inclus, que le feu se propage aux arbres voisins
 - ignitedTrees est un tableau de coordonnées [x, y] d'arbres en feu à la première étape de la simulation
 - treeHeight & treeWidth définissent les dimensions en pixel de chaque arbre dans l'interface graphique de la simulation
+
+La simulation affichera un message d'erreur avant de fermer le programme si des valeurs en configuration sont inutilisables.\
+Le détail des erreurs est affiché dans le flux d'erreur.\
+Si les coordonnées d'un arbre initialement en feu sont en dehors des dimensions de la forêt, l'arbre est ignoré et l'erreur est consignée dans le flux d'erreur.

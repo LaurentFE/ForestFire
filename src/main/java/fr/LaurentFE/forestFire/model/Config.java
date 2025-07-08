@@ -94,4 +94,29 @@ public class Config {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean isConfigUsable() {
+        boolean r = true;
+        if (forestHeight <= 0) {
+            System.err.println("config.json:forestHeight must be greater than 0");
+            r = false;
+        }
+        if (forestWidth <= 0) {
+            System.err.println("config.json:forestWidth must be greater than 0");
+            r = false;
+        }
+        if (fireSpreadProbability < 0 || fireSpreadProbability > 1) {
+            System.err.println("config.json:fireSpearProbability must be between 0 and 1 (included)");
+            r = false;
+        }
+        if (treeHeight <= 0) {
+            System.err.println("config.json:treeHeight must be greater than 0");
+            r = false;
+        }
+        if (treeWidth <= 0) {
+            System.err.println("config.json:treeWidth must be greater than 0");
+            r = false;
+        }
+        return r;
+    }
 }
