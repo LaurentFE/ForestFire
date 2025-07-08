@@ -21,9 +21,14 @@ public class Forest {
     // Ignites the trees set in the config.json
     public void initialIgnite(int[][] treeCoords) {
         for(int[] treePos : treeCoords) {
-            Tree t = trees[treePos[1]][treePos[0]];
-            t.ignite();
-            ignitedTrees.add(t);
+            if (isWithinBounds(treePos[0], treePos[1])) {
+                Tree t = trees[treePos[1]][treePos[0]];
+                t.ignite();
+                ignitedTrees.add(t);
+            } else {
+                System.err.println("config.json:ignitedTrees["+treePos[0]+","+treePos[1]+"] is out of bounds, and " +
+                        "has been ignored");
+            }
         }
     }
 
